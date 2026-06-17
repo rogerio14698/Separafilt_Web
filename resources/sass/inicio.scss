@@ -1,0 +1,139 @@
+@use "./var/variables" as v;
+
+.header {
+    background-color: v.$colorSecondaryFluid;
+    padding: 10px;
+    width: 100%;
+
+    .logoHero {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 14px;
+        gap: 20px;
+
+        img {
+            width: 20vw;
+            max-width: 300px;
+            border: 1px solid white;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 0 10px rgb(255, 255, 255);
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .logoHero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 14px;
+            gap: 20px;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .navBar {
+        ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        li {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+        }
+        a:hover {
+            color: v.$colorPrimaryHover;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
+            ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    }
+
+    h1 {
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+    }
+
+    p {
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0;
+    }
+}
+
+.main {
+    background-color: v.$colorTextMuted;
+    padding: 10px;
+
+    .title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        background-color: yellow;
+        padding: 20px;
+        
+
+        h1 {
+            color: #222;
+            font-size: 50px;
+            font-weight: bold;
+            margin-right: auto;
+            text-decoration-line: underline;
+        }
+        p {
+           color: #222;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0;
+            max-width: 50%;
+            margin-right: auto;
+            text-align: justify;
+        }
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 30px;
+                margin-right: 0;
+                text-align: center;
+
+            }
+            p {
+                font-size: 16px;
+                text-align: justify;
+                max-width: 100%;
+
+            }
+        }
+    }
+}

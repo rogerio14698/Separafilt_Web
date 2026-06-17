@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /admin
+Disallow: /api
+Disallow: /test
+Disallow: /debug
+Disallow: /temp
+Disallow: /*.json$
+Allow: /
+
+Sitemap: https://separafilt.com/sitemap.xml
