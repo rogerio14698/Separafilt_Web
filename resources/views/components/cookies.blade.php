@@ -12,37 +12,53 @@
     tráfico de navegación.')
 
 @section('content')
+    <main class="container legal-page">
+        <section class="legal-hero">
+            <h1>Politica de Cookies</h1>
+            <p>
+                Esta web no instala cookies propias. Unicamente pueden utilizarse cookies de terceros cuando se emplean
+                servicios externos.
+            </p>
+        </section>
 
-    <section class="container legal-section">
-        <h1>Política de Cookies</h1>
-        <p>Este sitio web utiliza cookies para mejorar la experiencia de usuario y analizar el tráfico de navegación.</p>
+        <section class="legal-section legal-card">
+            <h2>1. Que son las cookies</h2>
+            <p>
+                Las cookies son pequenos archivos de texto que se almacenan en su dispositivo al visitar una pagina web.
+                Sirven para recordar informacion de navegacion o para medir actividad.
+            </p>
 
-        <h2>1. ¿Qué son las cookies?</h2>
-        <p>
-            Una cookie es un pequeño archivo de texto que se descarga en su equipo al acceder a determinadas páginas web.
-            Las cookies permiten a una página web, entre otras cosas, almacenar y recuperar información sobre los hábitos de
-            navegación de un usuario o de su equipo.
-        </p>
+            <h2>2. Cookies utilizadas en este sitio</h2>
+            <p>
+                <strong>SeparaFilt no utiliza cookies propias.</strong>
+                En su caso, pueden intervenir cookies de terceros asociadas a servicios externos que se utilicen en la web,
+                por ejemplo servicios de analitica o proveedores tecnicos.
+            </p>
 
-        <h2>2. Cookies de Terceros utilizadas en esta Web</h2>
-        <p>
-            <strong>Esta página web no utiliza cookies propias de sesión ni de rastreo.</strong> Sin embargo, se utilizan
-            servicios de terceros que pueden instalar sus propias cookies para recopilar información estadística:
-        </p>
-        <ul>
-            <li>
-                <strong>Cookies de Análisis (Google Analytics):</strong> Son gestionadas por Google, Inc. Permiten
-                cuantificar el número de usuarios y realizar la medición y análisis estadístico de la utilización que hacen
-                los usuarios del servicio ofertado para mejorar la navegación.
-            </li>
-        </ul>
+            <h2>3. Cookies de terceros</h2>
+            <p>
+                Los terceros son responsables de sus propias cookies y de su propia informacion legal.
+                Recomendamos revisar sus politicas de privacidad y cookies para conocer su funcionamiento,
+                plazos y finalidades.
+            </p>
 
-        <h2>3. Cómo desactivar o eliminar las cookies</h2>
-        <p>
-            El usuario puede, en cualquier momento, permitir, bloquear o eliminar las cookies instaladas en su equipo
-            mediante la configuración de las opciones del navegador que utilice (Google Chrome, Mozilla Firefox, Safari,
-            Microsoft Edge, etc.). La desactivación de estas cookies no impide el uso ni la navegación por el sitio web.
-        </p>
-    </section>
+            <h2>4. Gestion y desactivacion</h2>
+            <p>
+                Puede permitir, bloquear o eliminar cookies desde la configuracion de su navegador.
+                Si bloquea cookies de terceros, algunas funciones externas podrian no estar disponibles.
+            </p>
+
+            <h2>5. Base legal</h2>
+            <p>
+                Cuando proceda el uso de cookies no tecnicas de terceros, la base legal sera su consentimiento,
+                de acuerdo con la normativa aplicable de la Union Europea.
+            </p>
+
+            <h2>6. Actualizaciones</h2>
+            <p>
+                Esta politica puede modificarse para adaptarse a cambios normativos o tecnicos.
+            </p>
+        </section>
+    </main>
 
 @endsection

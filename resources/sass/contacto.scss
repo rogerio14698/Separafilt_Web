@@ -1,0 +1,326 @@
+@use "./var/variables" as v;
+
+.contact-page {
+    background-color: v.$colorBgLight;
+}
+
+// ============================================================
+// HERO SECTION
+// ============================================================
+.contact-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 90px 48px;
+    min-height: 38vh;
+    background: linear-gradient(
+        135deg,
+        v.$colorSecondaryFluid 0%,
+        v.$colorPrimaryDark   55%,
+        v.$colorPrimary       100%
+    );
+    overflow: hidden;
+
+    // Patrón grid industrial de fondo
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 44px 44px;
+        pointer-events: none;
+    }
+
+    h1 {
+        color: v.$colorTextLight;
+        font-size: clamp(2.2rem, 5vw, 3.2rem);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 16px;
+    }
+
+    p {
+        color: rgba(248, 250, 252, 0.76);
+        font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+        max-width: 680px;
+        line-height: 1.8;
+        position: relative;
+        z-index: 1;
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 52px 24px;
+        min-height: 32vh;
+
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        p {
+            font-size: 0.9rem;
+        }
+    }
+}
+
+// ============================================================
+// CONTACT CONTENT (INFO + FORM)
+// ============================================================
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 48px;
+    padding: 72px 48px;
+    max-width: 1280px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 960px) {
+        grid-template-columns: 1fr;
+        gap: 52px;
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 40px 24px;
+        gap: 36px;
+    }
+}
+
+// ============================================================
+// CONTACT INFO SECTION
+// ============================================================
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    h2 {
+        color: v.$colorTextMain;
+        font-size: clamp(1.2rem, 2.8vw, 1.8rem);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin: 0;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 48px;
+            height: 3px;
+            background-color: v.$colorPrimary;
+            margin-top: 10px;
+        }
+    }
+
+    .info-block {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid v.$colorBorder;
+
+        &:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        h3 {
+            color: v.$colorTextMain;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin: 0;
+            color: v.$colorPrimary;
+        }
+
+        p {
+            color: v.$colorTextMuted;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin: 0;
+
+            strong {
+                color: v.$colorTextMain;
+            }
+
+            a {
+                color: v.$colorPrimary;
+                text-decoration: none;
+                font-weight: 600;
+                transition: color v.$transitionSpeed;
+
+                &:hover {
+                    color: v.$colorPrimaryHover;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+// ============================================================
+// CONTACT FORM WRAPPER
+// ============================================================
+.contact-form-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        background-color: v.$colorBgWhite;
+        padding: 44px;
+        border-radius: v.$borderRadiusCard;
+        box-shadow: v.$shadowCard;
+
+        @media screen and (max-width: 768px) {
+            padding: 28px;
+        }
+
+        h2 {
+            color: v.$colorTextMain;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin-bottom: 6px;
+            margin: 0 0 6px 0;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+
+            label {
+                color: v.$colorTextMuted;
+                font-size: 0.72rem;
+                font-weight: 600;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+
+                // Checkbox label
+                &:has(input[type="checkbox"]) {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-start;
+                    gap: 10px;
+                    cursor: pointer;
+                    color: v.$colorTextMuted;
+                    font-size: 0.8rem;
+                    text-transform: none;
+                    letter-spacing: 0;
+                    font-weight: 400;
+
+                    a {
+                        color: v.$colorPrimary;
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            input[type="text"],
+            input[type="email"] {
+                background-color: v.$colorBgLight;
+                border: 1px solid v.$colorBorder;
+                border-radius: v.$borderRadius;
+                padding: 12px 14px;
+                color: v.$colorTextMain;
+                font-size: 0.9rem;
+                font-family: v.$fontPrimary;
+                outline: none;
+                transition: border-color v.$transitionSpeed, background-color v.$transitionSpeed;
+
+                &::placeholder {
+                    color: v.$colorTextMuted;
+                    opacity: 0.6;
+                }
+
+                &:focus {
+                    border-color: v.$colorPrimary;
+                    background-color: v.$colorBgWhite;
+                    box-shadow: 0 0 0 3px rgba(26, 86, 176, 0.08);
+                }
+            }
+
+            textarea {
+                background-color: v.$colorBgLight;
+                border: 1px solid v.$colorBorder;
+                border-radius: v.$borderRadius;
+                padding: 12px 14px;
+                color: v.$colorTextMain;
+                font-size: 0.9rem;
+                font-family: v.$fontPrimary;
+                resize: vertical;
+                min-height: 130px;
+                outline: none;
+                transition: border-color v.$transitionSpeed, background-color v.$transitionSpeed;
+
+                &::placeholder {
+                    color: v.$colorTextMuted;
+                    opacity: 0.6;
+                }
+
+                &:focus {
+                    border-color: v.$colorPrimary;
+                    background-color: v.$colorBgWhite;
+                    box-shadow: 0 0 0 3px rgba(26, 86, 176, 0.08);
+                }
+            }
+
+            input[type="checkbox"] {
+                width: 16px;
+                height: 16px;
+                accent-color: v.$colorPrimary;
+                flex-shrink: 0;
+                margin-top: 2px;
+                cursor: pointer;
+            }
+
+            span {
+                color: v.$colorTextMuted;
+                font-size: 0.8rem;
+                line-height: 1.5;
+
+                a {
+                    color: v.$colorPrimary;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        button[type="submit"] {
+            align-self: flex-start;
+            background-color: v.$colorPrimary;
+            color: v.$colorTextLight;
+            border: none;
+            padding: 14px 38px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: v.$borderRadius;
+            transition: background-color v.$transitionSpeed, transform v.$transitionSpeed, box-shadow v.$transitionSpeed;
+            margin-top: 8px;
+
+            &:hover {
+                background-color: v.$colorPrimaryHover;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 16px rgba(26, 86, 176, 0.24);
+            }
+
+            &:active {
+                transform: translateY(0);
+            }
+        }
+    }
+}

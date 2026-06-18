@@ -1,60 +1,91 @@
+@use "./var/variables" as v;
+
 .footer {
-    background-color: #333;
+    background-color: v.$colorSecondaryFluid;
 
     .footerContainer {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        padding: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 52px 32px;
+        gap: 40px;
+        max-width: 1280px;
+        margin: 0 auto;
 
         @media screen and (max-width: 768px) {
-            grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: 1fr;
+            padding: 36px 20px;
         }
 
-        .contactFooter,
+        .contactFooter {
+            .contactoHorario {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+
+                h1 {
+                    color: v.$colorTextLight;
+                    font-size: 0.7rem;
+                    font-weight: 700;
+                    letter-spacing: 0.14em;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    margin-bottom: 6px;
+
+                    &:not(:first-child) {
+                        margin-top: 22px;
+                    }
+                }
+
+                hr {
+                    border: none;
+                    border-top: 1px solid rgba(255, 255, 255, 0.1);
+                    margin: 8px 0;
+                }
+
+                span {
+                    color: rgba(248, 250, 252, 0.58);
+                    font-size: 0.875rem;
+                    padding: 3px 0;
+                    display: block;
+                }
+            }
+        }
+
         .footerLegal {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             align-items: flex-start;
-            gap: 12px;
+            gap: 6px;
 
             h2 {
-                color: white;
-                font-size: 1.3rem;
-                font-weight: bold;
-                margin: 0;
-                padding: 0;
-                text-decoration-line: underline;
+                color: v.$colorTextLight;
+                font-size: 0.7rem;
+                font-weight: 700;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                text-decoration: none;
+                margin-bottom: 10px;
             }
 
             a {
-                color: white;
+                color: rgba(248, 250, 252, 0.58);
                 text-decoration: none;
-                font-size: 1rem;
-                font-weight: bold;
-                margin: 0;
-                padding: 0;
-            }
-            a:hover {
-                color: #6798e6;
-                cursor: pointer;
-            }
-        }
+                font-size: 0.875rem;
+                font-weight: 400;
+                padding: 4px 0;
+                transition: color v.$transitionSpeed;
 
-        .footerCop{
-            h2 {
-                color: white;
-                font-size: 1rem;
-                font-weight: bold;
-                margin: 0;
-                padding: 0;
+                &:hover {
+                    color: v.$colorAccentIndustrial;
+                }
             }
+
             p {
-                color: white;
-                font-size: 12px;
-                font-weight: bold;
-                margin: 0;
+                color: rgba(248, 250, 252, 0.3);
+                font-size: 0.78rem;
+                margin-top: auto;
+                padding-top: 28px;
+                font-weight: 400;
             }
         }
     }

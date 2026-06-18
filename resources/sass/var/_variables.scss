@@ -2,13 +2,34 @@
 // Paleta de Colores Corporativa: Separafilt (Sass / SCSS)
 // ==========================================================================
 
-// Variables individuales mapeadas (Para un uso directo y rápido)
-$colorPrimaryHover:#6798e6;
-$colorSecondaryFluid:#0F172A;
-$colorAccentIndustrial:#0EA5E9;
-$colorBgLight:#F97316;
-$colorBgWhite:#F8FAFC;
-$colorTextMain:#0F172A;
-$colorTextMuted:#64748B;
+// --- Azules corporativos (referencia logo Separafilt) ---
+$colorPrimary:          #1A56B0; // Azul corporativo principal
+$colorPrimaryHover:     #2F6FD3; // Azul claro (hover)
+$colorPrimaryDark:      #0D3A7A; // Azul muy oscuro (gradientes)
+$colorAccentIndustrial: #38BDF8; // Azul cielo (acento / highlights)
 
+// --- Fondos ---
+$colorSecondaryFluid:   #0F172A; // Navy oscuro (header / footer)
+$colorBgDark:           #111827; // Secciones oscuras (contacto)
+$colorBgSection:        #E8EDF4; // Fondo gris-azulado (productos)
+$colorBgLight:          #F1F5F9; // Fondo claro (main)
+$colorBgWhite:          #FFFFFF; // Blanco puro (tarjetas)
+
+// --- Tipografía ---
+$colorTextMain:         #1E293B; // Texto principal
+$colorTextMuted:        #64748B; // Texto secundario
+$colorTextLight:        #F8FAFC; // Texto sobre fondos oscuros
+
+// --- Bordes ---
+$colorBorder:           #CBD5E1;
+
+// --- Fuentes ---
+$fontPrimary: 'Roboto', sans-serif;
+
+// --- Misc ---
+$borderRadius:     4px;
+$borderRadiusCard: 2px;
+$transitionSpeed:  0.3s;
+$shadowCard:       0 2px 12px rgba(0, 0, 0, 0.09);
+$shadowHover:      0 8px 28px rgba(26, 86, 176, 0.18);
 

@@ -1,4 +1,4 @@
-/* apply a natural box layout model to all elements, but allowing components to change */
+/* Natural box layout model */
 html {
   box-sizing: border-box;
 }
@@ -6,15 +6,28 @@ html {
   box-sizing: inherit;
 }
 
-h1, h2 ,h3, a, p, ul, li, img {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
-    font-family: 'Roboto', sans-serif;
+h1, h2, h3, h4, a, p, ul, li, img {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+body {
+  background-color: #F1F5F9;
+  font-family: 'Roboto', sans-serif;
+  font-optical-sizing: auto;
+  color: #1E293B;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+  font-weight: 700;
 }

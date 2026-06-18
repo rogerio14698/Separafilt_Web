@@ -14,32 +14,56 @@
     recabados en este sitio web.')
 
 @section('content')
-    <section class="container legal-section">
-        <h1>Aviso Legal</h1>
-        <p>En cumplimiento del deber de información dispuesto en la legislación vigente, a continuación se reflejan los
-            siguientes datos de información general de este sitio web:</p>
+    <main class="container legal-page">
+        <section class="legal-hero">
+            <h1>Aviso Legal</h1>
+            <p>
+                Informacion general sobre titularidad del sitio, condiciones de uso y limitacion de responsabilidad.
+            </p>
+        </section>
 
-        <h2>1. Datos Identificativos</h2>
-        <p>
-            El sitio web <strong>portfolio.rogerlab.es</strong> (en adelante, la Web) es operado bajo la marca comercial
-            <strong>SeparaFilt</strong>. <br>
-            Para cualquier consulta, sugerencia o reclamación, puede ponerse en contacto con nosotros a través del
-            formulario de contacto disponible en la propia web.
-        </p>
+        <section class="legal-section legal-card">
+            <h2>1. Titularidad del sitio web</h2>
+            <p>
+                Este sitio web es titularidad de <strong>SeparaFilt</strong>.
+                Para cualquier consulta, puede utilizar el formulario de contacto disponible en la web.
+            </p>
 
-        <h2>2. Propiedad Intelectual y Usuarios</h2>
-        <p>
-            El acceso y/o uso de este portal le atribuye la condición de USUARIO, que acepta los términos de uso aquí
-            reflejados. Los textos, diseños, logotipos e imágenes mostrados en esta web son propiedad de SeparaFilt o de sus
-            respectivos creadores. Queda prohibida la reproducción total o parcial de los contenidos sin autorización
-            previa.
-        </p>
+            <h2>2. Objeto</h2>
+            <p>
+                El presente aviso regula el acceso, navegacion y uso del sitio web, asi como las responsabilidades derivadas
+                de la utilizacion de sus contenidos (textos, imagenes, diseno, codigo fuente y otros elementos).
+            </p>
 
-        <h2>3. Exclusión de Responsabilidad</h2>
-        <p>
-            SeparaFilt no se hace responsable, en ningún caso, de los daños y perjuicios de cualquier naturaleza que
-            pudieran ocasionar errores u omisiones en los contenidos, o la falta de disponibilidad del portal, a pesar de
-            haber adoptado todas las medidas tecnológicas necesarias para evitarlo.
-        </p>
-    </section>
+            <h2>3. Condiciones de uso</h2>
+            <p>
+                La persona usuaria se compromete a realizar un uso adecuado del sitio web y de sus contenidos,
+                de conformidad con la ley, la buena fe y el presente aviso legal.
+            </p>
+
+            <h2>4. Propiedad intelectual e industrial</h2>
+            <p>
+                Los contenidos de esta web son titularidad de SeparaFilt o de terceros autorizados.
+                Queda prohibida la reproduccion, distribucion o comunicacion publica, total o parcial,
+                sin autorizacion previa y expresa.
+            </p>
+
+            <h2>5. Enlaces externos</h2>
+            <p>
+                Este sitio puede contener enlaces a paginas de terceros. SeparaFilt no se responsabiliza de los contenidos,
+                politicas o practicas de dichos sitios externos.
+            </p>
+
+            <h2>6. Limitacion de responsabilidad</h2>
+            <p>
+                SeparaFilt no garantiza la disponibilidad continua del sitio web ni la ausencia de errores,
+                aunque adopta medidas razonables para su correcto funcionamiento.
+            </p>
+
+            <h2>7. Legislacion aplicable</h2>
+            <p>
+                Este aviso legal se rige por la normativa espanola y de la Union Europea aplicable.
+            </p>
+        </section>
+    </main>
 @endsection

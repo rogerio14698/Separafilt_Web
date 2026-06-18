@@ -1,0 +1,385 @@
+@use "./var/variables" as v;
+
+.catalog-page {
+    background-color: v.$colorBgLight;
+}
+
+// ============================================================
+// HERO SECTION
+// ============================================================
+.catalog-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 90px 48px;
+    min-height: 36vh;
+    background: linear-gradient(
+        135deg,
+        v.$colorSecondaryFluid 0%,
+        v.$colorPrimaryDark   55%,
+        v.$colorPrimary       100%
+    );
+    overflow: hidden;
+
+    // Línea de acento lateral
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 4px;
+        background: v.$colorAccentIndustrial;
+    }
+
+    // Patrón grid industrial de fondo
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 44px 44px;
+        pointer-events: none;
+    }
+
+    h1 {
+        color: v.$colorTextLight;
+        font-size: clamp(2rem, 4.5vw, 3rem);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 16px;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 64px;
+            height: 4px;
+            background-color: v.$colorAccentIndustrial;
+            margin-top: 14px;
+        }
+    }
+
+    p {
+        color: rgba(248, 250, 252, 0.76);
+        font-size: clamp(0.9rem, 1.5vw, 1rem);
+        max-width: 680px;
+        line-height: 1.8;
+        position: relative;
+        z-index: 1;
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 52px 24px;
+        min-height: 30vh;
+
+        h1 {
+            font-size: 1.7rem;
+        }
+
+        p {
+            font-size: 0.9rem;
+        }
+    }
+}
+
+// ============================================================
+// CATALOG CONTENT
+// ============================================================
+.catalog-content {
+    padding: 72px 48px;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 768px) {
+        padding: 40px 24px;
+    }
+}
+
+// ============================================================
+// CATALOG GRID
+// ============================================================
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+
+    @media screen and (max-width: 1100px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+// ============================================================
+// PRODUCT CATALOG CARD
+// ============================================================
+.product-catalog-card {
+    display: flex;
+    flex-direction: column;
+    background-color: v.$colorBgWhite;
+    border-radius: v.$borderRadiusCard;
+    overflow: hidden;
+    box-shadow: v.$shadowCard;
+    transition: transform v.$transitionSpeed, box-shadow v.$transitionSpeed;
+
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: v.$shadowHover;
+    }
+
+    .product-catalog-img {
+        width: 100%;
+        overflow: hidden;
+        background-color: v.$colorBgSection;
+        aspect-ratio: 16 / 10;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+    }
+
+    &:hover .product-catalog-img img {
+        transform: scale(1.05);
+    }
+
+    .product-catalog-info {
+        display: flex;
+        flex-direction: column;
+        padding: 24px;
+        gap: 10px;
+        flex-grow: 1;
+    }
+}
+
+// ============================================================
+// PRODUCT INFO ELEMENTS
+// ============================================================
+.product-catalog-info h3 {
+    color: v.$colorTextMain;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    margin: 0;
+    margin-bottom: 4px;
+}
+
+.product-spec {
+    color: v.$colorPrimary;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 !important;
+    padding-bottom: 8px;
+    border-bottom: 1px solid v.$colorBorder;
+}
+
+.product-catalog-info {
+    > p:not(.product-spec) {
+        color: v.$colorTextMuted;
+        font-size: 0.85rem;
+        line-height: 1.65;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+// ============================================================
+// PRODUCT FEATURES
+// ============================================================
+.product-features {
+    list-style: none;
+    margin: 0;
+    padding: 12px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex-grow: 1;
+
+    li {
+        color: v.$colorTextMuted;
+        font-size: 0.8rem;
+        line-height: 1.5;
+        padding-left: 16px;
+        position: relative;
+
+        &::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: v.$colorPrimary;
+            font-weight: bold;
+        }
+    }
+}
+
+// ============================================================
+// ACTION BUTTON
+// ============================================================
+.btn-catalog {
+    display: inline-block;
+    background-color: v.$colorPrimary;
+    color: v.$colorTextLight;
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: v.$borderRadius;
+    border: none;
+    cursor: pointer;
+    transition: background-color v.$transitionSpeed, transform v.$transitionSpeed, box-shadow v.$transitionSpeed;
+    align-self: flex-start;
+    margin-top: auto;
+
+    &:hover {
+        background-color: v.$colorPrimaryHover;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(26, 86, 176, 0.2);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+// ============================================================
+// PRODUCT DETAIL PAGE
+// ============================================================
+.product-detail-page {
+    background-color: v.$colorBgLight;
+}
+
+.product-detail-hero {
+    padding: 56px 48px 24px;
+
+    .back-link {
+        display: inline-block;
+        color: v.$colorPrimary;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        margin-bottom: 16px;
+
+        &:hover {
+            color: v.$colorPrimaryHover;
+        }
+    }
+
+    h1 {
+        color: v.$colorTextMain;
+        font-size: clamp(1.5rem, 3.6vw, 2.5rem);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 12px;
+    }
+
+    p {
+        color: v.$colorTextMuted;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 36px 24px 16px;
+    }
+}
+
+.product-detail-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 36px;
+    padding: 0 48px 64px;
+
+    @media screen and (max-width: 980px) {
+        grid-template-columns: 1fr;
+        padding: 0 24px 40px;
+    }
+}
+
+.product-detail-image {
+    background-color: v.$colorBgWhite;
+    border-radius: v.$borderRadiusCard;
+    box-shadow: v.$shadowCard;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        aspect-ratio: 4 / 3;
+    }
+}
+
+.product-detail-info {
+    background-color: v.$colorBgWhite;
+    border-radius: v.$borderRadiusCard;
+    box-shadow: v.$shadowCard;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    h2,
+    h3 {
+        color: v.$colorTextMain;
+        font-size: 0.86rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin: 0;
+    }
+
+    p {
+        color: v.$colorTextMuted;
+        font-size: 0.95rem;
+        line-height: 1.75;
+        margin: 0;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 8px;
+    }
+
+    li {
+        color: v.$colorTextMuted;
+        font-size: 0.9rem;
+        position: relative;
+        padding-left: 16px;
+
+        &::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: v.$colorPrimary;
+        }
+    }
+
+    .btn-catalog {
+        margin-top: 14px;
+    }
+}

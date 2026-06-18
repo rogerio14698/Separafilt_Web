@@ -1,138 +1,396 @@
 @use "./var/variables" as v;
 
+// ============================================================
+// HEADER
+// ============================================================
 .header {
     background-color: v.$colorSecondaryFluid;
-    padding: 10px;
+    padding: 0;
     width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid v.$colorPrimary;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
 
     .logoHero {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
-        padding: 14px;
+        padding: 14px 32px;
         gap: 20px;
 
         img {
-            width: 20vw;
-            max-width: 300px;
-            border: 1px solid white;
-            border-radius: 5px;
-            padding: 10px;
-            background-color: white;
-            box-shadow: 0 0 10px rgb(255, 255, 255);
-        }
-    }
-
-    @media screen and (max-width: 768px) {
-        .logoHero {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 14px;
-            gap: 20px;
-
-            img {
-                width: 100%;
-            }
+            width: clamp(120px, 14vw, 210px);
+            border-radius: v.$borderRadius;
+            padding: 8px 12px;
+            background-color: v.$colorBgWhite;
         }
     }
 
     .navBar {
         ul {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            gap: 20px;
+            gap: 4px;
         }
 
         li {
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
             margin: 0;
             padding: 0;
-            list-style: none;
-        }
-        a {
-            color: white;
-            text-decoration: none;
-            font-size: 20px;
-            font-weight: bold;
-            margin: 0;
-            padding: 0;
-        }
-        a:hover {
-            color: v.$colorPrimaryHover;
-            cursor: pointer;
         }
 
-        @media screen and (max-width: 768px) {
-            ul {
-                flex-direction: column;
-                align-items: flex-start;
+        a {
+            color: v.$colorTextLight;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 10px 16px;
+            display: block;
+            border-bottom: 2px solid transparent;
+            transition: color v.$transitionSpeed, border-color v.$transitionSpeed;
+
+            &:hover,
+            &.active {
+                color: v.$colorAccentIndustrial;
+                border-bottom-color: v.$colorAccentIndustrial;
             }
         }
     }
 
     h1 {
-        color: white;
-        font-size: 30px;
-        font-weight: bold;
-        margin: 0;
-        padding: 0;
+        color: v.$colorTextLight;
+        font-size: 1.1rem;
+        font-weight: 700;
     }
 
-    p {
-        color: white;
-        font-size: 20px;
-        font-weight: bold;
-        margin: 0;
+    @media screen and (max-width: 900px) {
+        .logoHero {
+            flex-direction: column;
+            align-items: center;
+            padding: 16px;
+
+            img {
+                width: clamp(140px, 45vw, 240px);
+            }
+        }
+
+        .navBar ul {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .navBar a {
+            font-size: 0.8rem;
+            padding: 8px 10px;
+        }
     }
 }
 
+// ============================================================
+// MAIN WRAPPER
+// ============================================================
 .main {
-    background-color: v.$colorTextMuted;
-    padding: 10px;
+    background-color: v.$colorBgLight;
+    padding: 0;
 
+    // ============================================================
+    // HERO / TITLE SECTION
+    // ============================================================
     .title {
+        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
-        gap: 20px;
-        background-color: yellow;
-        padding: 20px;
-        
+        align-items: flex-start;
+        padding: 90px 48px;
+        min-height: 46vh;
+        background: linear-gradient(
+            135deg,
+            v.$colorSecondaryFluid 0%,
+            v.$colorPrimaryDark   55%,
+            v.$colorPrimary       100%
+        );
+        overflow: hidden;
+
+
+        // Patrón grid industrial de fondo
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 44px 44px;
+            pointer-events: none;
+        }
 
         h1 {
-            color: #222;
-            font-size: 50px;
-            font-weight: bold;
-            margin-right: auto;
-            text-decoration-line: underline;
+            color: v.$colorTextLight;
+            font-size: clamp(2rem, 5vw, 3.6rem);
+            font-weight: 800;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            position: relative;
+            z-index: 1;
         }
+
         p {
-           color: #222;
-            font-size: 20px;
-            font-weight: bold;
-            margin: 0;
-            max-width: 50%;
-            margin-right: auto;
-            text-align: justify;
+            color: rgba(248, 250, 252, 0.78);
+            font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+            max-width: 620px;
+            margin-top: 22px;
+            line-height: 1.75;
+            position: relative;
+            z-index: 1;
         }
+
         @media screen and (max-width: 768px) {
-            h1 {
-                font-size: 30px;
-                margin-right: 0;
-                text-align: center;
+            padding: 52px 24px;
+            min-height: 36vh;
+        }
+    }
 
+    // ============================================================
+    // CONTACT SECTION – inline en inicio, justo después de productos
+    // ============================================================
+    .contactInicio {
+        display: grid;
+        grid-template-columns: 1fr 1.65fr;
+        background-color: v.$colorBgDark;
+        min-height: 30rem;
+        margin-bottom: 20px;
+
+        @media screen and (max-width: 900px) {
+            grid-template-columns: 1fr;
+        }
+
+        // ---- Columna izquierda: texto / info de contacto ----
+        .contactInicio-texto {
+            padding: 60px 44px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            @media screen and (max-width: 900px) {
+                padding: 40px 24px;
+                border-right: none;
             }
-            p {
-                font-size: 16px;
-                text-align: justify;
-                max-width: 100%;
 
+            > h2 {
+                color: v.$colorTextLight;
+                font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+                text-decoration: none;
+                margin: 0;
+
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 44px;
+                    height: 3px;
+                    background-color: v.$colorPrimary;
+                    margin-top: 12px;
+                }
+            }
+
+            > p {
+                color: rgba(248, 250, 252, 0.65);
+                font-size: 0.9rem;
+                text-align: left;
+                margin: 0;
+                line-height: 1.65;
+
+                a {
+                    color: v.$colorAccentIndustrial;
+                    text-decoration: none;
+                    font-weight: 600;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+
+        .contactoHorario {
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            h2 {
+                color: v.$colorTextLight;
+                font-size: 0.7rem;
+                font-weight: 700;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                text-decoration: none;
+                margin-top: 16px;
+                margin-bottom: 4px;
+            }
+
+            hr {
+                border: none;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                margin: 6px 0;
+            }
+
+            span {
+                display: block;
+                color: rgba(248, 250, 252, 0.58);
+                font-size: 0.85rem;
+                padding: 2px 0;
+            }
+        }
+
+        // ---- Columna derecha: formulario ----
+        form {
+            padding: 60px 52px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            background-color: rgba(255, 255, 255, 0.03);
+
+            @media screen and (max-width: 900px) {
+                padding: 40px 24px;
+            }
+
+            h2 {
+                color: v.$colorTextLight;
+                font-size: 0.85rem;
+                font-weight: 700;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                text-decoration: none;
+                margin-bottom: 6px;
+            }
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+
+                label {
+                    color: rgba(248, 250, 252, 0.55);
+                    font-size: 0.72rem;
+                    font-weight: 600;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+
+                    // Etiqueta de checkbox
+                    &:has(input[type="checkbox"]) {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: flex-start;
+                        gap: 10px;
+                        cursor: pointer;
+                        color: rgba(248, 250, 252, 0.5);
+                        font-size: 0.8rem;
+                        text-transform: none;
+                        letter-spacing: 0;
+
+                        a {
+                            color: v.$colorAccentIndustrial;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                input[type="text"],
+                input[type="email"] {
+                    background-color: rgba(255, 255, 255, 0.05);
+                    border: 1px solid rgba(255, 255, 255, 0.14);
+                    border-radius: v.$borderRadius;
+                    padding: 12px 14px;
+                    color: v.$colorTextLight;
+                    font-size: 0.9rem;
+                    font-family: v.$fontPrimary;
+                    outline: none;
+                    transition: border-color v.$transitionSpeed, background-color v.$transitionSpeed;
+
+                    &::placeholder {
+                        color: rgba(248, 250, 252, 0.28);
+                    }
+
+                    &:focus {
+                        border-color: v.$colorPrimary;
+                        background-color: rgba(255, 255, 255, 0.08);
+                    }
+                }
+
+                textarea {
+                    background-color: rgba(255, 255, 255, 0.05);
+                    border: 1px solid rgba(255, 255, 255, 0.14);
+                    border-radius: v.$borderRadius;
+                    padding: 12px 14px;
+                    color: v.$colorTextLight;
+                    font-size: 0.9rem;
+                    font-family: v.$fontPrimary;
+                    resize: vertical;
+                    min-height: 110px;
+                    outline: none;
+                    transition: border-color v.$transitionSpeed, background-color v.$transitionSpeed;
+
+                    &::placeholder {
+                        color: rgba(248, 250, 252, 0.28);
+                    }
+
+                    &:focus {
+                        border-color: v.$colorPrimary;
+                        background-color: rgba(255, 255, 255, 0.08);
+                    }
+                }
+
+                input[type="checkbox"] {
+                    width: 16px;
+                    height: 16px;
+                    accent-color: v.$colorPrimary;
+                    flex-shrink: 0;
+                    margin-top: 2px;
+                    cursor: pointer;
+                }
+
+                span {
+                    color: rgba(248, 250, 252, 0.48);
+                    font-size: 0.8rem;
+                    line-height: 1.5;
+
+                    a {
+                        color: v.$colorAccentIndustrial;
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            button[type="submit"] {
+                align-self: flex-start;
+                background-color: v.$colorPrimary;
+                color: v.$colorTextLight;
+                border: none;
+                padding: 14px 38px;
+                font-size: 0.78rem;
+                font-weight: 700;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                cursor: pointer;
+                border-radius: v.$borderRadius;
+                transition: background-color v.$transitionSpeed, transform v.$transitionSpeed;
+
+                &:hover {
+                    background-color: v.$colorPrimaryHover;
+                    transform: translateY(-1px);
+                }
+
+                &:active {
+                    transform: translateY(0);
+                }
             }
         }
     }

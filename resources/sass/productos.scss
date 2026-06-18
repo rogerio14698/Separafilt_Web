@@ -1,52 +1,122 @@
 @use "./var/variables" as v;
 
 .product {
-    background-color: red;
-    padding: 10px;
+    background-color: v.$colorBgSection;
+    padding: 72px 32px;
 
-    h2 {
-        color: white;
-        font-size: 30px;
-        font-weight: bold;
-        margin: 0;
+    > h1 {
+        color: v.$colorTextMain;
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        text-align: center;
+        margin-bottom: 52px;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 48px;
+            height: 3px;
+            background-color: v.$colorPrimary;
+            margin: 14px auto 0;
+        }
     }
 
     .productList {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        height: auto;
-        @media screen and (max-width: 768px) {
-            grid-template-columns: repeat(1, 1fr);
+        gap: 24px;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        @media screen and (max-width: 960px) {
+            grid-template-columns: repeat(2, 1fr);
         }
-        .productCard {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            padding: 20px;
-            border: 1px solid white;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgb(255, 255, 255);
-            margin: 20px;
 
-            h3 {
-                color: white;
-                font-size: 20px;
-                font-weight: bold;
-                text-decoration-line: underline;
-            }
+        @media screen and (max-width: 600px) {
+            grid-template-columns: 1fr;
+        }
+    }
 
-            p {
-                color: white;
-                font-size: 16px;
-                font-weight: bold;
-            }
+    .productCard {
+        display: flex;
+        flex-direction: column;
+        background-color: v.$colorBgWhite;
+        border-radius: v.$borderRadiusCard;
+        overflow: hidden;
+        box-shadow: v.$shadowCard;
+        transition: transform v.$transitionSpeed, box-shadow v.$transitionSpeed;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: v.$shadowHover;
+        }
+
+        .productCard_img {
+            width: 100%;
+            overflow: hidden;
+            background-color: v.$colorBgSection;
 
             img {
                 width: 100%;
-                height: auto;
+                aspect-ratio: 16 / 10;
+                object-fit: cover;
+                display: block;
+                transition: transform 0.5s ease;
+            }
+        }
+
+        // Imagen directa (sin wrapper)
+        > img {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            display: block;
+        }
+
+        &:hover .productCard_img img {
+            transform: scale(1.04);
+        }
+
+        h3 {
+            color: v.$colorTextMain;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            padding: 20px 20px 12px;
+            border-bottom: 1px solid v.$colorBorder;
+            margin: 0 20px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        p {
+            color: v.$colorTextMuted;
+            font-size: 0.875rem;
+            line-height: 1.65;
+            padding: 12px 20px 0;
+            flex-grow: 1;
+        }
+
+        a {
+            display: block;
+            background-color: v.$colorPrimary;
+            color: v.$colorTextLight;
+            text-align: center;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 13px 20px;
+            margin: 18px 20px 20px;
+            border-radius: v.$borderRadius;
+            transition: background-color v.$transitionSpeed;
+
+            &:hover {
+                background-color: v.$colorPrimaryHover;
             }
         }
     }
