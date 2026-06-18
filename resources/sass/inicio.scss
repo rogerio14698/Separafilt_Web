@@ -58,6 +58,17 @@
                 border-bottom-color: v.$colorAccentIndustrial;
             }
         }
+        @media screen and (max-width: 600px) {
+            ul {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            a {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+        }
     }
 
     h1 {
