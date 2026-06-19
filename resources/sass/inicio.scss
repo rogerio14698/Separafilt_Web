@@ -12,6 +12,11 @@
     z-index: 100;
     border-bottom: 3px solid v.$colorPrimary;
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+    @media screen and (max-width: 600px) {
+        position: static;
+        top: auto;
+        z-index: 0;
+    }
 
     .logoHero {
         display: flex;
@@ -88,7 +93,7 @@
             }
         }
 
-        .navBar ul {
+        .fBar ul {
             flex-wrap: wrap;
             justify-content: center;
         }
