@@ -152,7 +152,9 @@ return [
             'tiempo' => 'Sin tiempo de inactividad, Los separadores ILB-ILS están diseñados para un funcionamiento continuo sin paradas para limpieza o mantenimiento rutinario.',
             'mantenimiento' => 'No hay que limpiar ni reemplazar filtros ni elementos filtrantes. La acción centrífuga elimina la arena sin ensuciar ni restringir el flujo.',
             'lavado' => 'Minimice la pérdida de agua y líquidos con las opciones disponibles que garantizan cero pérdidas de líquidos.'
-        ]
+        ],
+        'dimensiones_img' => 'img/dimensiones_separacionILB-ILS1.png',
+        'url_video_youtube' => 'https://www.youtube.com/watch?v=PckuC5_T0F4&t=10s',
     ],
     'JPX Standard Efficiency Separator' => [
         'category' => 'separacion',
@@ -190,7 +192,12 @@ return [
             'tiempo' => 'Filtración continua, Los separadores LAKOS están diseñados para funcionar de forma continua, sin paradas rutinarias para limpieza o mantenimiento',
             'mantenimiento' => 'Sin rejillas ni elementos filtrantes que limpiar o reemplazar. La acción centrífuga elimina los residuos sin restringir el flujo ni generar la suciedad que produce un filtro.',
             'rentabilidad' => 'Reduce los defectos, las piezas de repuesto y los ciclos de mantenimiento, al tiempo que aumenta la eficiencia y la uniformidad del producto.'
+        ], 'dimensiones_img' => [
+            'img/dimensiones_JPX1.png',
+            'img/dimensiones_JPX2.png',
+            'img/dimensiones_JPX3.png',
         ]
+        
     ],
      'eJPX High Efficiency Separator' => [
         'category' => 'separacion',
@@ -228,6 +235,11 @@ return [
             'tiempo' => 'Filtración continua, Los separadores LAKOS están diseñados para funcionar de forma continua, sin paradas rutinarias para limpieza o mantenimiento',
             'mantenimiento' => 'Sin rejillas ni elementos filtrantes que limpiar o reemplazar. La acción centrífuga elimina los residuos sin restringir el flujo ni generar la suciedad que produce un filtro.',
             'rentabilidad' => 'Reduce los defectos, las piezas de repuesto y los ciclos de mantenimiento, al tiempo que aumenta la eficiencia y la uniformidad del producto.'
+        ],
+         'dimensiones_img' => [
+            'img/dimensiones-eJPX1.png',
+            'img/dimensiones-eJPX2.png',
+
         ]
-    ],
+     ],    
 ];
