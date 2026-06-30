@@ -1,4 +1,4 @@
-<footer class="container footer">
+<footer class="footer">
     <div class="footerContainer">
         <div class="contactFooter">
             @include('components.horarioAtencion')

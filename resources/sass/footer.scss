@@ -1,6 +1,7 @@
 @use "./var/variables" as v;
 
 .footer {
+    width: 100%;
     background-color: v.$colorSecondaryFluid;
 
     .footerContainer {

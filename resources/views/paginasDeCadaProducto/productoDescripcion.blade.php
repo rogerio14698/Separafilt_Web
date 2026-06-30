@@ -20,7 +20,6 @@
 	<section class="product-detail-hero">
 		<a href="{{ $product['category'] === 'filtracion' ? route('filtracion') : route('separacion') }}" class="back-link">Volver a catalogo</a>
 		<h1>{{ $product['name'] }}</h1>
-		<p>{{ $product['spec'] }}</p>
 	</section>
 
 	<section class="product-detail-content">
@@ -45,9 +44,31 @@
 					<li>{{ $application }}</li>
 				@endforeach
 			</ul>
+			<h3>Especificaciones</h3>
+			<ul>
+				@foreach($product['spec'] as $key => $value)
+					<li><strong>{{ ucfirst(str_replace('_', ' ', $key)) }}:</strong> {{ $value }}</li>
+				@endforeach
+			</ul>
 
 			<a href="{{ route('contacto') }}" class="btn-catalog">Solicitar Información</a>
 		</article>
+		<div class="card_destaque">
+			@php
+				//Aqui vamos a generar una pocas rutas para los logos de cada interacción del foreach
+				$iconos = [
+					'tiempo' => 'fas fa-clock', //un reloj
+					'mantenimiento' => 'fas fa-tools', //una llave inglesa
+					'lavado' => 'fas fa-tint', //una gota de agua
+				];
+			@endphp
+
+			<ul>
+				@foreach($product['destaque'] as $key => $value)
+					<li><i class="{{ $iconos[$key] ?? '' }}"></i> <strong>{{ ucfirst(str_replace('_', ' ', $key)) }}:</strong> {{ $value }}</li>
+				@endforeach
+			</ul>
+		</div>
 	</section>
 </main>
 @endsection
